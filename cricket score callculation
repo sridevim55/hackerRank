@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    char a[10];
+    scanf("%s",a);
+    int ball=1,p1=0,p2=0;
+    int i=0,count=0;
+    int current=0;
+    int runs=0;
+    while(a[i]!='\0'){
+        // printf("ball %d\n",ball);
+        if(a[i]=='W' || a[i]=='N'){
+            runs++;
+            ball--;
+            // printf("runs secured in wide nd noball %d\n",runs);
+            i++;
+        }                         
+        else{
+        if(current==0){
+            p1+=a[i]-'0';
+            // printf("%d is secured by palyer 1 at %d ball\n",p1,ball);
+        }
+        else{
+            p2+=a[i]-'0';
+            // printf("%d is secured by palyer 2 at %d ball\n",p2,ball);
+        }
+        if((a[i]-'0')%2!=0){
+            current = !current;
+            
+        }
+      }
+      if(ball>=6){
+            current = !current;
+                count++;
+                ball=0;
+          // printf("%d index\n",i);
+            }
+    ball++;
+    i++;
+    }
+    // printf(" terimated at %d\n",i);
+    printf("%d",p1);
+    printf("\n%d",p2);
+    printf("\n%d.%d",count,ball-1); 
+    printf("\n%d",runs);
+    printf("\n%d",p1+p2+runs);
+    return 0;
+}
