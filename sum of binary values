@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    int a,arr[100][100],k=0,sum=0;
+    scanf("%d",&a);
+    for(int i=0;i<a;i++){
+        for(int j=0;j<a;j++){
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(int i=0;i<a;i++){
+        k=0;
+        for(int j=a-1;j>=0;j--){
+            sum+=arr[i][j]* pow(2,k);
+            k++;
+        }
+    }
+    printf("%d",sum);
+    return 0;
+}
